@@ -1,10 +1,18 @@
+@font-face {
+  font-family: "DnD";
+  src: url("../components/DnDC.ttf");
+}
 .container {
     margin: auto;
     max-width: 500px;
     font-family: sans-serif;
 }
 .heading {
-    color: rebeccapurple;
+    margin: 0;
+    color: rgb(219, 47, 4);
+    text-align: left;
+    padding: 2.5em 2em 0;
+    border-bottom: 1px solid #eee;
   }
   .nav-links {
     display: flex;
@@ -13,9 +21,11 @@
   }
   .nav-link-item {
     padding-right: 2rem;
+    font-style: italic;
   }
   .nav-link-text {
     color: black;
+
   }
   .site-title {
     font-size: 3rem;
@@ -25,4 +35,28 @@
   }
   ul {
     list-style-type: square;
+    right: 50%;
+    font-family: "DnD";
+    font-size: 2rem;
   }
+  .subA{
+    color: rgb(219, 47, 4);
+    font-size: 1rem;
+  }
+  .subB{
+    color: rgb(219, 47, 4);
+    font-size: 2rem;
+  }
+  .main{
+    justify-items: center;
+  }
+  .donkey{
+    padding: 0%;
+  }
+  .dingly{
+    text-align: right;
+  }
+
+
+
+  

@@ -10,47 +10,6 @@ import {
   dingly
  } from '../../components/layout.module.css'
 
-var express = require("express");
-var app = express();
-var port = 3000;
-var bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-var mongoose = require("mongoose");
-mongoose.Promise = global.Promise;
-mongoose.connect("mongodb+srv://root:mongoPass@cluster0.ddvbnxo.mongodb.net/?retryWrites=true&w=majority");
-var nameSchema = new mongoose.Schema({
-    str: String,
-    con: String,
-    dex: String,
-    wis: String,
-    int: String,
-    cha: String,
-});
-
-var User = mongoose.model("User", nameSchema);
-
-app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
-});
-
-app.post("/addname", (req, res) => {
-    var myData = new User(req.body);
-    myData.save()
-        .then(item => {
-            res.send("Name saved to database");
-        })
-        .catch(err => {
-            res.status(400).send("Unable to save to database");
-        });
-});
-
-app.listen(port, () => {
-    console.log("Server listening on port " + port);
-});
-
-
 function setRand(poop) 
 {
   var numArray = [4] 
@@ -83,7 +42,6 @@ const BlogPage = ({ data }) =>
           <article key={node.id}>          
               <div className={all}>
                 <h2 className={subB}>Character Stats</h2>
-                <form method="post" action="/addname">
                   <p>
                   <h3 className={subA}>Strength</h3>
                   <button onClick={()=>{setRand("str")}}>Roll!</button> <input className={dingly} type="text" id="str" size="20" placeholder='0'></input>
@@ -109,7 +67,6 @@ const BlogPage = ({ data }) =>
                   <button onClick={()=>{setRand("cha")}}>Roll!</button> <input className={dingly} type="text" id="cha" size="20" placeholder='0'></input>
                   <input type="submit" value="Save Stats"></input>
                   </p>
-                </form>
               </div> 
           </article>
         ))
